@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './Form.module.css';
-import contactsAction from 'redux/contactsRedux/contactsAction';
+import contactsOperations from 'redux/contactsRedux/contactsOperations';
 import fade from 'transitionsCSS/fade.module.css';
 import { CSSTransition } from 'react-transition-group';
 
@@ -44,7 +44,6 @@ class Form extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const contactsProps = this.props.contacts;
-    console.log(contactsProps);
     if (!name) {
       this.notify('Name');
     }
@@ -128,7 +127,7 @@ const mapStateToProps = ({ contacts: { items } }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmitForm: contact => dispatch(contactsAction.addContact(contact)),
+    onSubmitForm: contact => dispatch(contactsOperations.addContact(contact)),
   };
 };
 

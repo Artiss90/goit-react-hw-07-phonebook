@@ -1,19 +1,34 @@
 {
-  "posts": [
+  "contacts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Artiss90",
+      "number": "459-12-99",
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Юлька",
+      "number": "459-12-99",
+      "id": 2
+    },
+    {
+      "name": "Юлька",
+      "number": "459-12-99",
+      "id": 3
+    },
+    {
+      "name": "Юлька",
+      "number": "459-12-99",
+      "id": 4
+    },
+    {
+      "name": "Юлька",
+      "number": "459-12-99",
+      "id": 5
+    },
+    {
+      "name": "Юлька",
+      "number": "459-12-99",
+      "id": 6
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
