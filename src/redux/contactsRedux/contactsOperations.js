@@ -2,11 +2,12 @@ import axios from 'axios';
 import contactsAction from './contactsAction';
 
 axios.defaults.baseURL = 'http://localhost:4040';
+const pathContacts = '/contacts';
 
 const fetchContact = () => dispatch => {
   dispatch(contactsAction.fetchContactsRequest());
   axios
-    .get('/contacts')
+    .get(pathContacts)
     .then(({ data }) => dispatch(contactsAction.fetchContactsSuccess(data)))
     .catch(error => dispatch(contactsAction.fetchContactsError(error)));
 };
@@ -20,7 +21,7 @@ const addContact = text => dispatch => {
 
   dispatch(contactsAction.addContactsRequest());
   axios
-    .post('/contacts', contact)
+    .post(pathContacts, contact)
     .then(({ data }) => dispatch(contactsAction.addContactsSuccess(data)))
     .catch(error => dispatch(contactsAction.addContactsError(error)));
 };
@@ -28,7 +29,7 @@ const addContact = text => dispatch => {
 const deleteContact = id => dispatch => {
   dispatch(contactsAction.deleteContactsRequest());
   axios
-    .delete(`/contacts/${id}`)
+    .delete(`${pathContacts}/${id}`)
     .then(() => dispatch(contactsAction.deleteContactsSuccess(id)))
     .catch(error => dispatch(contactsAction.deleteContactsError(error)));
 };

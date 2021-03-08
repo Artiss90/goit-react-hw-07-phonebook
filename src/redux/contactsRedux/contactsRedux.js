@@ -27,9 +27,18 @@ const loadingRedux = createReducer(false, {
   [contactsAction.deleteContactsSuccess]: () => false,
   [contactsAction.deleteContactsError]: () => false,
 });
+const errorRedux = createReducer('', {
+  [contactsAction.fetchContactsError]: (_, { payload }) =>
+    'fetchContactsError: ' + payload.message,
+  [contactsAction.addContactsError]: (_, { payload }) =>
+    'addContactsError: ' + payload.message,
+  [contactsAction.deleteContactsError]: (_, { payload }) =>
+    'deleteContactsError: ' + payload.message,
+});
 
 export default combineReducers({
   items: itemsRedux,
   filter: filterRedux,
   loading: loadingRedux,
+  error: errorRedux,
 });

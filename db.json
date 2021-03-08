@@ -11,14 +11,19 @@
       "id": 3
     },
     {
+      "id": 1,
+      "name": "Юлька",
+      "number": "459-12-99"
+    },
+    {
       "name": "Rosie Simpson",
       "number": "459-12-99",
-      "id": 5
+      "id": 4
     },
     {
       "name": "Martin Luter",
-      "number": "459-12-77",
-      "id": 6
+      "number": "459-12-99",
+      "id": 5
     }
   ]
 }

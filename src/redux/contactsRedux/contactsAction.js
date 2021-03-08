@@ -9,26 +9,9 @@ const addContactsRequest = createAction('contacts/addContactsRequest');
 const addContactsSuccess = createAction('contacts/addContactsSuccess');
 const addContactsError = createAction('contacts/addContactsError');
 
-// const addContact = createAction('contacts/add_contact', ({ name, number }) => {
-//   return {
-//     payload: {
-//       /**создаём новый контакт и присвоим ему ID  */
-//       id: uuidv4(),
-//       name: name,
-//       number: number,
-//     },
-//   };
-// });
-
 const deleteContactsRequest = createAction('contacts/deleteContactsRequest');
 const deleteContactsSuccess = createAction('contacts/deleteContactsSuccess');
 const deleteContactsError = createAction('contacts/deleteContactsError');
-
-// const deleteContact = createAction('contacts/delete_contact');
-
-// const changeFilterRequest = createAction('contacts/changeFilterRequest');
-// const changeFilterSuccess = createAction('contacts/changeFilterSuccess');
-// const changeFilterError = createAction('contacts/changeFilterError');
 
 const changeFilter = createAction('contacts/change_filter');
 

@@ -29,6 +29,7 @@ class App extends Component {
       }),
     ),
     isLoadingContact: PropTypes.bool,
+    errorContacts: PropTypes.string,
     clearFilter: PropTypes.func,
     fetchContacts: PropTypes.func,
   };
@@ -82,10 +83,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts: { items, loading } }) => {
+const mapStateToProps = ({ contacts: { items, loading, error } }) => {
   return {
     contacts: items,
     isLoadingContact: loading,
+    errorContacts: error,
   };
 };
 const mapDispatchToProps = dispatch => {
