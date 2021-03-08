@@ -3,12 +3,12 @@ import { combineReducers } from 'redux';
 import contactsAction from './contactsAction';
 
 const itemsRedux = createReducer([], {
-  [contactsAction.addContactsSuccess]: (_, { payload }) => {
+  [contactsAction.fetchContactsSuccess]: (_, { payload }) => payload,
+  [contactsAction.addContactsSuccess]: (_, { payload }) =>
     /**добавляем новый контакт в в состояние контактов */
-    return [..._, payload];
-  },
+    [..._, payload],
 
-  [contactsAction.deleteContact]: (_, { payload }) =>
+  [contactsAction.deleteContactsSuccess]: (_, { payload }) =>
     _.filter(contact => contact.id !== payload),
 });
 
@@ -17,9 +17,15 @@ const filterRedux = createReducer('', {
 });
 
 const loadingRedux = createReducer(false, {
+  [contactsAction.fetchContactsRequest]: () => true,
+  [contactsAction.fetchContactsSuccess]: () => false,
+  [contactsAction.fetchContactsError]: () => false,
   [contactsAction.addContactsRequest]: () => true,
   [contactsAction.addContactsSuccess]: () => false,
   [contactsAction.addContactsError]: () => false,
+  [contactsAction.deleteContactsRequest]: () => true,
+  [contactsAction.deleteContactsSuccess]: () => false,
+  [contactsAction.deleteContactsError]: () => false,
 });
 
 export default combineReducers({

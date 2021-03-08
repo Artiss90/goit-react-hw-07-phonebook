@@ -1,4 +1,5 @@
 import contactsAction from 'redux/contactsRedux/contactsAction';
+import contactsOperations from 'redux/contactsRedux/contactsOperations';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -54,8 +55,7 @@ const mapStateToProps = ({ contacts: { items, filter } }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClickDelete: id => dispatch(contactsAction.deleteContact(id)),
-    clearFilter: e => dispatch(contactsAction.changeFilter(e.target.value)),
+    onClickDelete: id => dispatch(contactsOperations.deleteContact(id)),
   };
 };
 
