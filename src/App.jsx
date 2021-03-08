@@ -1,16 +1,19 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import Form from './Components/Form/Form';
 import ContactList from './Components/ContactList/ContactList';
 import FilterName from './Components/FilterName/FilterName';
-import style from './App.module.css';
 import classNames from 'classnames/bind';
 import Logo from 'Components/Logo/Logo';
+import contactsAction from 'redux/contactsRedux/contactsAction';
+import contactsOperations from 'redux/contactsRedux/contactsOperations';
+//*import style
+import style from './App.module.css';
 import appearSlide from './transitionsCSS/appearSlide.module.css'; /**модули CSS указывать до CSSTransition */
 import fade from './transitionsCSS/fade.module.css';
 import { CSSTransition } from 'react-transition-group';
-import contactsAction from 'redux/contactsRedux/contactsAction';
 
 /* eslint react/prop-types: 1 */
 
@@ -25,11 +28,17 @@ class App extends Component {
         number: PropTypes.string,
       }),
     ),
+    isLoadingContact: PropTypes.bool,
     clearFilter: PropTypes.func,
+    fetchContacts: PropTypes.func,
   };
 
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
   render() {
-    const { contacts, clearFilter } = this.props;
+    const { contacts, clearFilter, isLoadingContact } = this.props;
     return (
       <>
         <CSSTransition
@@ -56,20 +65,33 @@ class App extends Component {
           <FilterName />
         </CSSTransition>
         <h2 className={mixStyle('title', 'center')}>Contacts</h2>
-        <ContactList />
+        {isLoadingContact ? (
+          <Loader
+            className={mixStyle('center')}
+            type="Oval"
+            color="#1976d2"
+            height={100}
+            width={100}
+            timeout={0} //3 secs
+          />
+        ) : (
+          <ContactList />
+        )}
       </>
     );
   }
 }
 
-const mapStateToProps = ({ contacts: { items } }) => {
+const mapStateToProps = ({ contacts: { items, loading } }) => {
   return {
     contacts: items,
+    isLoadingContact: loading,
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
     clearFilter: () => dispatch(contactsAction.changeFilter('')),
+    fetchContacts: () => dispatch(contactsOperations.fetchContact()),
   };
 };
 

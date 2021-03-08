@@ -1,12 +1,13 @@
-import contactsAction from 'redux/contactsRedux/contactsAction';
+// import contactsAction from 'redux/contactsRedux/contactsAction';
 import contactsOperations from 'redux/contactsRedux/contactsOperations';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getFilterContacts from './getFilterContacts';
+//* импорт стилей
 import style from './ContactList.module.css';
 import fade from 'transitionsCSS/fade.module.css';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import getFilterContacts from './getFilterContacts';
 
 /* eslint react/prop-types: 1 */
 
@@ -45,11 +46,11 @@ class ContactList extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts: { items, filter } }) => {
+const mapStateToProps = ({ contacts: { items, filter, loading } }) => {
   /** фильтруем, показываем только те что совпадают*/
-  console.log(filter);
   return {
     contacts: getFilterContacts(items, filter),
+    isLoadingContact: loading,
   };
 };
 

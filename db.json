@@ -1,11 +1,6 @@
 {
   "contacts": [
     {
-      "name": "Юлька",
-      "number": "459-12-99",
-      "id": 1
-    },
-    {
       "name": "Флоринський",
       "number": "459-12-99",
       "id": 2
@@ -16,24 +11,14 @@
       "id": 3
     },
     {
-      "name": "Флоринський",
-      "number": "459-12-99",
-      "id": 4
-    },
-    {
-      "name": "Artiss90",
+      "name": "Rosie Simpson",
       "number": "459-12-99",
       "id": 5
     },
     {
-      "name": "Юлька",
-      "number": "459-12-99",
+      "name": "Martin Luter",
+      "number": "459-12-77",
       "id": 6
-    },
-    {
-      "name": "Artiss90",
-      "number": "459-12-99",
-      "id": 7
     }
   ]
 }
