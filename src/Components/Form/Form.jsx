@@ -17,7 +17,7 @@ class Form extends Component {
     onSubmitForm: PropTypes.func,
     contacts: PropTypes.arrayOf(
       PropTypes.exact({
-        id: PropTypes.string,
+        id: PropTypes.number,
         name: PropTypes.string,
         number: PropTypes.string,
       }),
