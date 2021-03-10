@@ -9,6 +9,7 @@ import classNames from 'classnames/bind';
 import Logo from 'Components/Logo/Logo';
 import contactsAction from 'redux/contactsRedux/contactsAction';
 import contactsOperations from 'redux/contactsRedux/contactsOperations';
+import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
 //*import style
 import style from './App.module.css';
 import appearSlide from './transitionsCSS/appearSlide.module.css'; /**модули CSS указывать до CSSTransition */
@@ -83,11 +84,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts: { items, loading, error } }) => {
+const mapStateToProps = state => {
   return {
-    contacts: items,
-    isLoadingContact: loading,
-    errorContacts: error,
+    contacts: contactsSelectors.getContactsItems(state),
+    isLoadingContact: contactsSelectors.getContactsLoading(state),
+    errorContacts: contactsSelectors.getContactsError(state),
   };
 };
 const mapDispatchToProps = dispatch => {

@@ -4,9 +4,10 @@ import Alert from 'Components/Alert/Alert';
 import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import { connect } from 'react-redux';
+import contactsOperations from 'redux/contactsRedux/contactsOperations';
+import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './Form.module.css';
-import contactsOperations from 'redux/contactsRedux/contactsOperations';
 import fade from 'transitionsCSS/fade.module.css';
 import { CSSTransition } from 'react-transition-group';
 
@@ -119,11 +120,9 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts: { items } }) => {
-  return {
-    contacts: items,
-  };
-};
+const mapStateToProps = state => ({
+  contacts: contactsSelectors.getContactsItems(state),
+});
 
 const mapDispatchToProps = dispatch => {
   return {

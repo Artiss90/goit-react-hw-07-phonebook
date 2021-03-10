@@ -1,9 +1,8 @@
-// import contactsAction from 'redux/contactsRedux/contactsAction';
-import contactsOperations from 'redux/contactsRedux/contactsOperations';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import getFilterContacts from './getFilterContacts';
+import contactsOperations from 'redux/contactsRedux/contactsOperations';
+import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
 //* импорт стилей
 import style from './ContactList.module.css';
 import fade from 'transitionsCSS/fade.module.css';
@@ -46,11 +45,11 @@ class ContactList extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts: { items, filter, loading } }) => {
+const mapStateToProps = state => {
   /** фильтруем, показываем только те что совпадают*/
   return {
-    contacts: getFilterContacts(items, filter),
-    isLoadingContact: loading,
+    contacts: contactsSelectors.getVisibleFilterContacts(state),
+    isLoadingContact: contactsSelectors.getContactsLoading(state),
   };
 };
 
