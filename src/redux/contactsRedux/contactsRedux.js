@@ -27,7 +27,7 @@ const loadingRedux = createReducer(false, {
   [contactsAction.deleteContactsSuccess]: () => false,
   [contactsAction.deleteContactsError]: () => false,
 });
-const errorRedux = createReducer('', {
+const errorRedux = createReducer(null, {
   [contactsAction.fetchContactsError]: (_, { payload }) =>
     'fetchContactsError: ' + payload.message,
   [contactsAction.addContactsError]: (_, { payload }) =>

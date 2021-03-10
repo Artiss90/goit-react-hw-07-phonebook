@@ -3,6 +3,7 @@ import style from './FilterName.module.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import contactsAction from 'redux/contactsRedux/contactsAction';
+import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
 
 /* eslint react/prop-types: 1 */
 
@@ -18,8 +19,8 @@ FilterName.propTypes = {
   onChange: PropTypes.func,
 };
 
-const mapStateToProps = ({ contacts: { filter } }) => ({
-  value: filter,
+const mapStateToProps = state => ({
+  value: contactsSelectors.getContactsFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
