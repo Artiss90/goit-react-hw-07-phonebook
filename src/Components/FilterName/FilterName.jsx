@@ -2,8 +2,7 @@ import React from 'react';
 import style from './FilterName.module.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import contactsAction from 'redux/contactsRedux/contactsAction';
-import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
+import { contactsAction, contactsSelectors } from 'redux/contactsRedux';
 
 /* eslint react/prop-types: 1 */
 

@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import contactsOperations from 'redux/contactsRedux/contactsOperations';
-import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
+import { contactsOperations, contactsSelectors } from 'redux/contactsRedux';
 //* импорт стилей
 import style from './ContactList.module.css';
 import fade from 'transitionsCSS/fade.module.css';

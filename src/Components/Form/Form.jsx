@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Alert from 'Components/Alert/Alert';
 import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
-import { connect } from 'react-redux';
-import contactsOperations from 'redux/contactsRedux/contactsOperations';
-import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
+import { contactsOperations, contactsSelectors } from 'redux/contactsRedux';
+import Alert from 'Components/Alert/Alert';
+//* import style
 import 'react-toastify/dist/ReactToastify.css';
 import style from './Form.module.css';
 import fade from 'transitionsCSS/fade.module.css';

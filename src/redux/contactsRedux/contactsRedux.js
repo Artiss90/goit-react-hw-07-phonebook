@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import contactsAction from './contactsAction';
+import { contactsAction } from 'redux/contactsRedux';
 
 const itemsRedux = createReducer([], {
   [contactsAction.fetchContactsSuccess]: (_, { payload }) => payload,

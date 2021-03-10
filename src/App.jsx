@@ -2,14 +2,16 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
+import {
+  contactsAction,
+  contactsOperations,
+  contactsSelectors,
+} from 'redux/contactsRedux';
 import Form from './Components/Form/Form';
 import ContactList from './Components/ContactList/ContactList';
 import FilterName from './Components/FilterName/FilterName';
-import classNames from 'classnames/bind';
 import Logo from 'Components/Logo/Logo';
-import contactsAction from 'redux/contactsRedux/contactsAction';
-import contactsOperations from 'redux/contactsRedux/contactsOperations';
-import contactsSelectors from 'redux/contactsRedux/contactsSelectors';
+import classNames from 'classnames/bind';
 //*import style
 import style from './App.module.css';
 import appearSlide from './transitionsCSS/appearSlide.module.css'; /**модули CSS указывать до CSSTransition */
